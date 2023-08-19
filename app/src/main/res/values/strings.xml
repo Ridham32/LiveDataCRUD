@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LiveDataCRUD</string>
+    <string name="Crud">CRUD with Live Data</string>
+</resources>
