@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 class ViewModel(application: Application): AndroidViewModel(application) {
 
-     var notesEntity: LiveData<List<NotesEntity>>
+    var notesEntity: LiveData<List<NotesEntity>>
     var notesDaoInterface: NotesDaoInterface
 
     init {
