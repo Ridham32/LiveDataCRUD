@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
 class ViewModel(application: Application): AndroidViewModel(application) {
+
      var notesEntity: LiveData<List<NotesEntity>>
     var notesDaoInterface: NotesDaoInterface
 
@@ -16,7 +17,7 @@ class ViewModel(application: Application): AndroidViewModel(application) {
 
     }
 
-    fun insertNotesDetails(notesEntity: NotesEntity){
+    fun addNotes(notesEntity: NotesEntity){
         viewModelScope.launch {
             notesDaoInterface.addNotes(notesEntity)
         }
