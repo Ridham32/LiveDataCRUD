@@ -32,15 +32,15 @@ class MainActivity : AppCompatActivity(),RecyclerInterface {
         binding.recyclerView.adapter = adapter
 
         viewModel.notesEntity.observe(this) {
+            adapter?.notesList?.clear()
             adapter?.notesList?.addAll(it)
-            for (notesEntity in it) {
+            adapter?.notifyDataSetChanged()
+
+          /*  for (notesEntity in it) {
                 System.out.println("notes entity ${notesEntity.id}")
                 System.out.println("notes entity ${notesEntity.name}")
                 System.out.println("notes entity ${notesEntity.age}")
-                adapter?.notifyDataSetChanged()
-
-
-            }
+            }*/
         }
 
         binding.fab.setOnClickListener {
@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity(),RecyclerInterface {
                 } else {
                     viewModel.addNotes(NotesEntity(name = dialogBinding.etNameCustom.text.toString(),
                     age = dialogBinding.etAgeCustom.text.toString())
+
                     )
 
                     dialog.dismiss()
@@ -69,14 +70,8 @@ class MainActivity : AppCompatActivity(),RecyclerInterface {
     }
 
 
-    override fun onDeleteClick(position: Int) {
-        viewModel.notesEntity.observe(this) {
-            adapter?.notesList?.removeAll(it.toSet())
-            adapter?.notifyDataSetChanged()
-
-
-            }
-
+    override fun onDeleteClick(position: Int){
+        viewModel.Delete(notesEntityList[position])
     }
 
     override fun onUpdateClick(position: Int) {
@@ -93,7 +88,9 @@ class MainActivity : AppCompatActivity(),RecyclerInterface {
             } else if (dialogBinding.etAgeCustom.text.toString().isNullOrEmpty()) {
                 dialogBinding.etAgeCustom.error = "Enter Age"
             } else {
-                viewModel.addNotes(NotesEntity(name = dialogBinding.etNameCustom.text.toString(),
+                viewModel.addNotes(NotesEntity(
+                    id = notesEntityList[position].id,
+                    name = dialogBinding.etNameCustom.text.toString(),
                     age = dialogBinding.etAgeCustom.text.toString())
                 )
 

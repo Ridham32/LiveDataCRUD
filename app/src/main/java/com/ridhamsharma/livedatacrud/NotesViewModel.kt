@@ -21,6 +21,12 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch {
             notesDaoInterface.addNotes(notesEntity)
         }
+
+    }
+    fun Delete(notesEntity: NotesEntity){
+        viewModelScope.launch{
+            notesDaoInterface.Delete(notesEntity)
+        }
     }
 
 }
