@@ -57,10 +57,10 @@ class MainActivity : AppCompatActivity(),RecyclerInterface {
                 } else if (dialogBinding.etAgeCustom.text.toString().isNullOrEmpty()) {
                     dialogBinding.etAgeCustom.error = "Enter Age"
                 } else {
-                    viewModel.addNotes(NotesEntity(name = dialogBinding.etNameCustom.text.toString(),
-                    age = dialogBinding.etAgeCustom.text.toString())
-
-                    )
+                    viewModel.addNotes(NotesEntity(
+                        name = dialogBinding.etNameCustom.text.toString(),
+                    age = dialogBinding.etAgeCustom.text.toString()),
+                        )
 
                     dialog.dismiss()
                 }
@@ -88,10 +88,11 @@ class MainActivity : AppCompatActivity(),RecyclerInterface {
             } else if (dialogBinding.etAgeCustom.text.toString().isNullOrEmpty()) {
                 dialogBinding.etAgeCustom.error = "Enter Age"
             } else {
-                viewModel.addNotes(NotesEntity(
+                viewModel.Update(NotesEntity(
                     id = notesEntityList[position].id,
                     name = dialogBinding.etNameCustom.text.toString(),
-                    age = dialogBinding.etAgeCustom.text.toString())
+                    age = dialogBinding.etAgeCustom.text.toString()),
+
                 )
 
                 dialog.dismiss()

@@ -12,6 +12,7 @@ class RecyclerViewAdapter (var notesList: ArrayList<NotesEntity>,var recyclerInt
     class ViewHolder (var view: View):RecyclerView.ViewHolder(view){
         var personName= view.findViewById<TextView>(R.id.tvName)
         var personAge= view.findViewById<TextView>(R.id.tvAge)
+        var tvTime= view.findViewById<TextView>(R.id.tvTime)
         var btnDelete = view.findViewById<Button>(R.id.btnDelete)
         var btnUpdate= view.findViewById<Button>(R.id.btnUpdate)
 
@@ -29,6 +30,7 @@ class RecyclerViewAdapter (var notesList: ArrayList<NotesEntity>,var recyclerInt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.personName.setText(notesList[position].name)
         holder.personAge.setText(notesList[position].age)
+        holder.tvTime.setText(notesList[position].time)
         holder.btnDelete.setOnClickListener{
             recyclerInterface.onDeleteClick(position)
         }
