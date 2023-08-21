@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 
-class ViewModel(application: Application): AndroidViewModel(application) {
+class NotesViewModel(application: Application): AndroidViewModel(application) {
 
     var notesEntity: LiveData<List<NotesEntity>>
     var notesDaoInterface: NotesDaoInterface

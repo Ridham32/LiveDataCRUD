@@ -13,7 +13,7 @@ abstract class NotesDb:RoomDatabase() {
         private var notesDb: NotesDb?= null
 
         fun getDatabase(context: Context): NotesDb {
-            if(NotesDb ==null){
+            if(notesDb ==null){
                 notesDb = Room.databaseBuilder(context,NotesDb::class.java,context.resources.getString(R.string.app_name)).build()
             }
             return notesDb!!

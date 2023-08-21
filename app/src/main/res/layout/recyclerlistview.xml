@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvName"
         android:hint="Description"
         />
-    <TextClock
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Time"
@@ -39,8 +39,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnEdit"
-        android:text="Edit"
+        android:id="@+id/btnUpdate"
+        android:text="Update"
         app:layout_constraintStart_toEndOf="@+id/btnDelete"
         app:layout_constraintTop_toBottomOf="@+id/tvAge"
         android:layout_marginTop="10dp"

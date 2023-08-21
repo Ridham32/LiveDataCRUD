@@ -13,7 +13,7 @@ class RecyclerViewAdapter (var notesList: ArrayList<NotesEntity>,var recyclerInt
         var personName= view.findViewById<TextView>(R.id.tvName)
         var personAge= view.findViewById<TextView>(R.id.tvAge)
         var btnDelete = view.findViewById<Button>(R.id.btnDelete)
-        var btnEdit= view.findViewById<Button>(R.id.btnEdit)
+        var btnUpdate= view.findViewById<Button>(R.id.btnUpdate)
 
     }
 
@@ -27,12 +27,12 @@ class RecyclerViewAdapter (var notesList: ArrayList<NotesEntity>,var recyclerInt
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.personName.setText(notesList[position].title)
-        holder.personAge.setText(notesList[position].description)
+        holder.personName.setText(notesList[position].name)
+        holder.personAge.setText(notesList[position].age)
         holder.btnDelete.setOnClickListener{
             recyclerInterface.onDeleteClick(position)
         }
-        holder.btnEdit.setOnClickListener{
+        holder.btnUpdate.setOnClickListener{
             recyclerInterface.onUpdateClick(position)
         }
 
